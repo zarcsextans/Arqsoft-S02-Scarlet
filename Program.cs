@@ -47,7 +47,7 @@ namespace Ahorcado
                     ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
 
                 // 6. REINICIO
-                jugarOtraVez = ui.PreguntarOtraVez();
+                jugarOtraVez = ui.PreguntarOtraVez(); 
             }
 
             Console.WriteLine("Gracias por jugar 👋");

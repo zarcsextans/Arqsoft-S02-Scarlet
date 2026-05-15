@@ -44,6 +44,7 @@ namespace Ahorcado
         }
 
         public string ObtenerPalabraAleatoria()
+
         {
             return _palabras[_random.Next(_palabras.Count)];
 
