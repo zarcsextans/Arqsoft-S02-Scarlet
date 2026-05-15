@@ -12,10 +12,14 @@
         public void MostrarTablero()
         {
             Console.Clear();
+
             MostrarAhorcado();
 
             Console.WriteLine($"Intentos restantes: {_motor.IntentosRestantes}");
             Console.WriteLine($"Letras usadas: {string.Join(", ", _motor.LetrasUsadas)}");
+
+            if (_motor.MostrarPista)
+                Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
 
             Console.Write("Palabra: ");
 
@@ -31,7 +35,10 @@
             return Console.ReadLine()[0];
         }
 
-        public void MostrarMensaje(string mensaje) => Console.WriteLine(mensaje);
+        public void MostrarMensaje(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+        }
 
         public bool PreguntarOtraVez()
         {
@@ -39,11 +46,28 @@
             return Console.ReadLine()?.ToLower() == "s";
         }
 
+        public static string PedirCategoria()
+        {
+            Console.WriteLine("Selecciona categoría:");
+            Console.WriteLine("1 - Arquitectura");
+            Console.WriteLine("2 - POO");
+            Console.WriteLine("3 - .NET");
+            Console.Write("Opción: ");
+
+            return Console.ReadLine() switch
+            {
+                "1" => "arquitectura",
+                "2" => "poo",
+                "3" => ".net",
+                _ => "arquitectura"
+            };
+        }
+
         private void MostrarAhorcado()
         {
-            string[] etapas = new string[]
+            string[] etapas =
             {
-                @"
+@"
   +---+
   |   |
       |
@@ -51,8 +75,7 @@
       |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |
@@ -60,8 +83,7 @@
       |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |
@@ -69,8 +91,7 @@
       |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |
@@ -78,8 +99,7 @@
       |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |
@@ -87,8 +107,7 @@
       |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |
@@ -96,8 +115,7 @@
  /    |
       |
 =========",
-
-                @"
+@"
   +---+
   |   |
   O   |

@@ -13,47 +13,34 @@ namespace Ahorcado
         public List<char> LetrasUsadas => _letrasUsadas;
         public int IntentosRestantes => _intentosRestantes;
 
+        public bool MostrarPista => _intentosRestantes <= 3;
+
         public MotorAhorcado(IRepositorioPalabras repositorio)
         {
             _palabraSecreta = repositorio.ObtenerPalabraAleatoria();
         }
 
         public bool LetraYaUsada(char letra)
-        {
-            return _letrasUsadas.Contains(letra);
-        }
-
-        public bool EsLetraCorrecta(char letra)
-        {
-            return _palabraSecreta.Contains(letra);
-        }
+            => _letrasUsadas.Contains(letra);
 
         public void RegistrarLetra(char letra)
         {
             _letrasUsadas.Add(letra);
 
             if (!_palabraSecreta.Contains(letra))
-            {
                 _intentosRestantes--;
-            }
         }
 
         public bool Ganado()
         {
             foreach (char c in _palabraSecreta)
-            {
                 if (!_letrasUsadas.Contains(c))
-                {
                     return false;
-                }
-            }
 
             return true;
         }
 
         public bool Perdido()
-        {
-            return _intentosRestantes <= 0;
-        }
+            => _intentosRestantes <= 0;
     }
 }
