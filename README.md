@@ -82,3 +82,21 @@ Pedir letras
 Mostrar mensajes
 
 <img width="948" height="625" alt="Captura de pantalla 2026-05-15 165829" src="https://github.com/user-attachments/assets/728b8cb3-2393-40a2-97aa-77a92e1efb31" />
+
+# 6 refactor: limpiar Program.cs con inyección de dependencias
+
+Program.cs actúa únicamente como punto de entrada del sistema, realizando la inyección de dependencias y delegando la lógica a las clases correspondientes, cumpliendo el principio de inversión de dependencias (DIP).
+
+Qué contiene:
+Program.cs solo coordina objetos:
+var repositorio = new PalabrasEnMemoria();
+var motor = new MotorAhorcado(repositorio);
+var ui = new ConsolaUI(motor);
+
+Mejora:
+Se aplica inyección manual de dependencias
+Código más limpio y modular
+
+# 7 feat: agregar pistas al ahorcado
+
+# 8 feat: agregar categorías de palabras
