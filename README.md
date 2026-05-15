@@ -65,3 +65,5 @@ Responsabilidades:
 Validar letras
 Controlar intentos
 Determinar victoria o derrota
+
+<img width="912" height="527" alt="Captura de pantalla 2026-05-15 164840" src="https://github.com/user-attachments/assets/5ecf9841-c00d-478b-9d11-e5e7905b5270" />
