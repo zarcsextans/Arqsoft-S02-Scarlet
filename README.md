@@ -112,4 +112,24 @@ Pista: la palabra empieza con 'A'
 if (_motor.MostrarPista)
     Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
 
-# 8 feat: agregar categorías de palabras
+# 8 feat: agregar categorías de palabras (tarea - versión refactorizada)
+
+Se implementa un sistema de categorías de palabras. El usuario selecciona una categoría al iniciar el juego y el repositorio devuelve palabras diferentes según la selección, permitiendo mayor flexibilidad y escalabilidad.
+
+Qué contiene:
+Selección de categoría:
+Arquitectura
+POO
+.NET
+Palabras dinámicas según categoría:
+new PalabrasEnMemoria(categoria);
+
+Mejora:
+Juego más dinámico
+Mayor escalabilidad
+Extensible sin tocar Motor
+
+<img width="643" height="441" alt="Captura de pantalla 2026-05-15 171519" src="https://github.com/user-attachments/assets/3f02365e-1ffe-461a-b8c2-067683b1f115" />
+
+
+<img width="647" height="527" alt="Captura de pantalla 2026-05-15 171415" src="https://github.com/user-attachments/assets/682f2e4e-d381-4584-a4f9-c42de65bb162" />
