@@ -67,3 +67,18 @@ Controlar intentos
 Determinar victoria o derrota
 
 <img width="912" height="527" alt="Captura de pantalla 2026-05-15 164840" src="https://github.com/user-attachments/assets/5ecf9841-c00d-478b-9d11-e5e7905b5270" />
+
+# 5 refactor: extraer ConsolaUI
+
+ConsolaUI no contiene lógica del juego, únicamente se encarga de la interacción con el usuario, cumpliendo el principio de responsabilidad única (SRP).
+
+Qué contiene:
+Interfaz de usuario en consola:
+ConsolaUI
+
+Responsabilidades:
+Mostrar tablero
+Pedir letras
+Mostrar mensajes
+
+<img width="948" height="625" alt="Captura de pantalla 2026-05-15 165829" src="https://github.com/user-attachments/assets/728b8cb3-2393-40a2-97aa-77a92e1efb31" />
