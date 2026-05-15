@@ -12,34 +12,42 @@
         public void MostrarTablero()
         {
             Console.SetCursorPosition(0, 0);
+
             Console.WriteLine($"=== VIBORITA === Puntos: {_motor.Puntos}");
             Console.WriteLine("+" + new string('-', _motor.Ancho) + "+");
 
             for (int y = 0; y < _motor.Alto; y++)
             {
                 Console.Write("|");
+
                 for (int x = 0; x < _motor.Ancho; x++)
                 {
                     var pos = (x, y);
 
-                    // Lógica de dibujo corregida
                     if (_motor.Cuerpo.First() == pos)
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("@"); // cabeza
+                        Console.ResetColor();
                     }
                     else if (_motor.Cuerpo.Contains(pos))
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write("o"); // cuerpo
+                        Console.ResetColor();
                     }
                     else if (_motor.Comida == pos)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("*"); // comida
+                        Console.ResetColor();
                     }
                     else
                     {
                         Console.Write(" "); // vacío
                     }
                 }
+
                 Console.WriteLine("|");
             }
 
@@ -55,7 +63,9 @@
             return ConsoleKey.NoName;
         }
 
-        public void MostrarMensaje(string mensaje) =>
-        Console.WriteLine(mensaje);
+        public void MostrarMensaje(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+        }
     }
 }
