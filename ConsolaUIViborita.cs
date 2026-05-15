@@ -4,6 +4,16 @@
     {
         private readonly MotorViborita _motor;
 
+        private readonly ConsoleColor[] _coloresCuerpo =
+        {
+            ConsoleColor.Yellow,
+            ConsoleColor.Cyan,
+            ConsoleColor.Magenta,
+            ConsoleColor.Blue,
+            ConsoleColor.DarkYellow,
+            ConsoleColor.White
+        };
+
         public ConsolaUIViborita(MotorViborita motor)
         {
             _motor = motor;
@@ -16,6 +26,9 @@
             Console.WriteLine($"=== VIBORITA === Puntos: {_motor.Puntos}");
             Console.WriteLine("+" + new string('-', _motor.Ancho) + "+");
 
+            var cuerpoArray = _motor.Cuerpo.ToList();
+            int index = 0;
+
             for (int y = 0; y < _motor.Alto; y++)
             {
                 Console.Write("|");
@@ -24,16 +37,20 @@
                 {
                     var pos = (x, y);
 
-                    if (_motor.Cuerpo.First() == pos)
+                    if (cuerpoArray.First() == pos)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("@"); // cabeza
                         Console.ResetColor();
                     }
-                    else if (_motor.Cuerpo.Contains(pos))
+                    else if (cuerpoArray.Contains(pos))
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("o"); // cuerpo
+                        // color dinámico por segmento
+                        int cuerpoIndex = cuerpoArray.IndexOf(pos);
+                        var color = _coloresCuerpo[cuerpoIndex % _coloresCuerpo.Length];
+
+                        Console.ForegroundColor = color;
+                        Console.Write("o");
                         Console.ResetColor();
                     }
                     else if (_motor.Comida == pos)
@@ -44,7 +61,7 @@
                     }
                     else
                     {
-                        Console.Write(" "); // vacío
+                        Console.Write(" ");
                     }
                 }
 
