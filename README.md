@@ -1,3 +1,4 @@
+
 # Actualización de README
 
 # Juego del Ahorcado
@@ -111,6 +112,11 @@ UI muestra pista:
 Pista: la palabra empieza con 'A'
 if (_motor.MostrarPista)
     Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
+
+<img width="608" height="347" alt="Captura de pantalla 2026-05-15 171611" src="https://github.com/user-attachments/assets/2c6c057b-2a0d-4159-bcad-3de64644f788" />
+
+<img width="691" height="313" alt="Captura de pantalla 2026-05-15 171654" src="https://github.com/user-attachments/assets/99022eba-0edb-452d-a3ee-8cded28c814d" />
+
 
 # 8 feat: agregar categorías de palabras (tarea - versión refactorizada)
 
