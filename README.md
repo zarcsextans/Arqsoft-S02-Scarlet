@@ -14,4 +14,32 @@ Estado inicial del proyecto:
 
 Toda la lógica en una sola clase (Juego.cs)
 UI + lógica + datos mezclados
-Difícil de mantener o escalar
+Difícil de mantener o escalar 
+
+# 2 docs: identificar violaciones SOLID en Juego.cs
+
+Antes (clase dios):
+SRP → una clase hace todo
+OCP → no es extensible sin modificar
+DIP → depende de implementaciones concretas
+
+Juego.cs hacía TODO:
+lógica del juego
+consola (UI)
+manejo de palabras
+
+MotorAhorcado
+
+validar letras
+controlar intentos
+saber si gana o pierde
+
+ConsolaUI
+
+mostrar tablero
+pedir letras
+mostrar mensajes
+
+PalabrasEnMemoria
+
+ObtenerPalabraAleatoria()
