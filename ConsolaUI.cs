@@ -12,15 +12,22 @@
         public void MostrarTablero()
         {
             Console.Clear();
+
             MostrarAhorcado();
 
             Console.WriteLine($"Intentos restantes: {_motor.IntentosRestantes}");
             Console.WriteLine($"Letras usadas: {string.Join(", ", _motor.LetrasUsadas)}");
 
+            // Mostrar pista cuando queden 3 intentos o menos
+            if (_motor.MostrarPista)
+                Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
+
             Console.Write("Palabra: ");
 
             foreach (char c in _motor.PalabraSecreta)
+            {
                 Console.Write(_motor.LetrasUsadas.Contains(c) ? c : '_');
+            }
 
             Console.WriteLine();
         }
@@ -28,14 +35,19 @@
         public char PedirLetra()
         {
             Console.Write("\nIngresa una letra: ");
+
             return Console.ReadLine()[0];
         }
 
-        public void MostrarMensaje(string mensaje) => Console.WriteLine(mensaje);
+        public void MostrarMensaje(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+        }
 
         public bool PreguntarOtraVez()
         {
             Console.Write("\n¿Jugar otra vez? (s/n): ");
+
             return Console.ReadLine()?.ToLower() == "s";
         }
 

@@ -1,4 +1,6 @@
-﻿namespace Ahorcado
+﻿using Juego_ahorcado;
+
+namespace Ahorcado
 {
     public class MotorViborita : IMotorJuego
     {

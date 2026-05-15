@@ -1,11 +1,8 @@
-﻿using System.Threading;
-
-// Menú principal
+﻿// Menú principal
 Console.WriteLine("¿Qué juego quieres jugar?");
 Console.WriteLine("  1 — Ahorcado");
 Console.WriteLine("  2 — Viborita");
 Console.Write("Opción: ");
-
 var opcion = Console.ReadLine();
 
 if (opcion == "1")
@@ -20,7 +17,6 @@ if (opcion == "1")
     while (!motor.Ganado() && !motor.Perdido())
     {
         ui.MostrarTablero();
-
         char letra = ui.PedirLetra();
 
         if (motor.LetraYaUsada(letra))
@@ -28,7 +24,6 @@ if (opcion == "1")
             ui.MostrarMensaje("Ya usaste esa letra.");
             continue;
         }
-
         motor.RegistrarLetra(letra);
     }
 
@@ -39,6 +34,8 @@ if (opcion == "1")
     else
         ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
 
+    // Nota: El código original de 'PreguntarOtraVez' solo instanciaba
+    // pero no reiniciaba el bucle. Aquí se mantiene igual a tu fragmento.
     if (ui.PreguntarOtraVez())
     {
         var nuevoMotor = new Ahorcado.MotorAhorcado(repositorio);
@@ -56,27 +53,21 @@ else if (opcion == "2")
     while (!motor.Ganado() && !motor.Perdido())
     {
         ui.MostrarTablero();
-
         var tecla = ui.LeerTecla();
 
-        if (tecla == ConsoleKey.Q)
-            break;
+        if (tecla == ConsoleKey.Q) break;
 
         if (tecla != ConsoleKey.NoName)
             motor.CambiarDireccion(tecla);
 
         motor.Avanzar();
-
-        Thread.Sleep(150);
+        Thread.Sleep(150); // velocidad del juego
     }
 
     ui.MostrarTablero();
-
-    ui.MostrarMensaje(
-        motor.Ganado()
-            ? "\n¡Ganaste! Llegaste a 10 puntos."
-            : "\nGame over."
-    );
+    ui.MostrarMensaje(motor.Ganado()
+        ? "\n¡Ganaste! Llegaste a 10 puntos."
+        : "\nGame over.");
 
     Console.CursorVisible = true;
 }
