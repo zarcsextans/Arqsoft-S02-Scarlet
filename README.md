@@ -44,7 +44,7 @@ PalabrasEnMemoria
 
 ObtenerPalabraAleatoria()
 
-#3 refactor: separar IRepositorioPalabras y PalabrasEnMemoria
+# 3 refactor: separar IRepositorioPalabras y PalabrasEnMemoria
 
 Se crea interfaz:
 IRepositorioPalabras
@@ -54,3 +54,14 @@ PalabrasEnMemoria
 Mejora:
 Se desacopla el origen de palabras
 Permite futuras extensiones (BD, API, etc.)
+
+# 4 refactor: extraer MotorAhorcado
+
+Qué contiene:
+Lógica del juego separada en:
+MotorAhorcado
+
+Responsabilidades:
+Validar letras
+Controlar intentos
+Determinar victoria o derrota
