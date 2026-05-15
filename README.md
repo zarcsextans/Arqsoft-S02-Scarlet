@@ -97,6 +97,19 @@ Mejora:
 Se aplica inyección manual de dependencias
 Código más limpio y modular
 
-# 7 feat: agregar pistas al ahorcado
+<img width="941" height="633" alt="Captura de pantalla 2026-05-15 170539" src="https://github.com/user-attachments/assets/7b7ffef2-679b-49c9-bfc2-5d2c6ddef073" />
+
+
+# 7 feat: agregar pistas al ahorcado (clase dios vs refactorizado)
+
+Se implementa la funcionalidad de pistas en el ahorcado. La lógica se encuentra en el MotorAhorcado y la presentación en ConsolaUI, activándose cuando los intentos restantes son menores o iguales a 3.
+
+Qué contiene:
+Nueva funcionalidad de pista:
+public bool MostrarPista => _intentosRestantes <= 3;
+UI muestra pista:
+Pista: la palabra empieza con 'A'
+if (_motor.MostrarPista)
+    Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
 
 # 8 feat: agregar categorías de palabras
