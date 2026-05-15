@@ -43,3 +43,14 @@ mostrar mensajes
 PalabrasEnMemoria
 
 ObtenerPalabraAleatoria()
+
+#3 refactor: separar IRepositorioPalabras y PalabrasEnMemoria
+
+Se crea interfaz:
+IRepositorioPalabras
+Implementación:
+PalabrasEnMemoria
+
+Mejora:
+Se desacopla el origen de palabras
+Permite futuras extensiones (BD, API, etc.)
