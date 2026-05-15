@@ -33,6 +33,7 @@ namespace Ahorcado
 
         public bool Ganado()
         {
+
             foreach (char c in _palabraSecreta)
                 if (!_letrasUsadas.Contains(c))
                     return false;

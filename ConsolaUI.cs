@@ -126,6 +126,7 @@
             };
 
             Console.WriteLine(etapas[6 - _motor.IntentosRestantes]);
+
         }
     }
 }
