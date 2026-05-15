@@ -48,6 +48,7 @@ namespace Ahorcado
 
                 // 6. REINICIO
                 jugarOtraVez = ui.PreguntarOtraVez(); 
+
             }
 
             Console.WriteLine("Gracias por jugar 👋");
