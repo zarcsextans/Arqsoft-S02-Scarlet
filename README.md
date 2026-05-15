@@ -139,3 +139,11 @@ Extensible sin tocar Motor
 
 
 <img width="647" height="527" alt="Captura de pantalla 2026-05-15 171415" src="https://github.com/user-attachments/assets/682f2e4e-d381-4584-a4f9-c42de65bb162" />
+
+# Capturas de ejecución
+
+<img width="1422" height="751" alt="Captura de pantalla 2026-05-15 174701" src="https://github.com/user-attachments/assets/8548c245-24b0-4a61-bf9a-c3458b3b3f00" />
+
+<img width="1298" height="667" alt="Captura de pantalla 2026-05-15 174739" src="https://github.com/user-attachments/assets/c42cd353-7ad2-4d4e-b157-7190797a6d3e" />
+
+
