@@ -146,4 +146,14 @@ Extensible sin tocar Motor
 
 <img width="1298" height="667" alt="Captura de pantalla 2026-05-15 174739" src="https://github.com/user-attachments/assets/c42cd353-7ad2-4d4e-b157-7190797a6d3e" />
 
+## Clausula de IA
+Este proyecto Yo Scarlet Angelina Ruelas Cardeña he utilizado herramientas de inteligencia artificial como apoyo durante su desarrollo, principalmente para:
+
+Comprender conceptos de programación y arquitectura de software
+Mejorar la redacción de documentación (README y ADR)
+Recibir guía en la organización del proyecto y buenas prácticas (SOLID y separación por capas)
+Resolver dudas puntuales durante el desarrollo
+
+La inteligencia artificial se la utilicé únicamente como herramienta de apoyo académico.
+
 
