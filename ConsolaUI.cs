@@ -1,4 +1,6 @@
-﻿namespace Ahorcado
+﻿using System;
+
+namespace Ahorcado
 {
     public class ConsolaUI
     {
@@ -18,15 +20,15 @@
             Console.WriteLine($"Intentos restantes: {_motor.IntentosRestantes}");
             Console.WriteLine($"Letras usadas: {string.Join(", ", _motor.LetrasUsadas)}");
 
-            // Mostrar pista cuando queden 3 intentos o menos
             if (_motor.MostrarPista)
-                Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
+                Console.WriteLine($"Pista: empieza con '{_motor.PalabraSecreta[0]}'");
 
             Console.Write("Palabra: ");
 
             foreach (char c in _motor.PalabraSecreta)
             {
                 Console.Write(_motor.LetrasUsadas.Contains(c) ? c : '_');
+                Console.Write(" ");
             }
 
             Console.WriteLine();
@@ -35,7 +37,6 @@
         public char PedirLetra()
         {
             Console.Write("\nIngresa una letra: ");
-
             return Console.ReadLine()[0];
         }
 
@@ -47,7 +48,6 @@
         public bool PreguntarOtraVez()
         {
             Console.Write("\n¿Jugar otra vez? (s/n): ");
-
             return Console.ReadLine()?.ToLower() == "s";
         }
 
@@ -55,7 +55,7 @@
         {
             string[] etapas = new string[]
             {
-                @"
+@"
   +---+
   |   |
       |
@@ -64,25 +64,25 @@
       |
 =========",
 
-                @"
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========",
-
-                @"
+@"
   +---+
   |   |
   O   |
+      |
+      |
+      |
+=========",
+
+@"
+  +---+
+  |   |
+  O   |
   |   |
       |
       |
 =========",
 
-                @"
+@"
   +---+
   |   |
   O   |
@@ -91,7 +91,7 @@
       |
 =========",
 
-                @"
+@"
   +---+
   |   |
   O   |
@@ -100,7 +100,7 @@
       |
 =========",
 
-                @"
+@"
   +---+
   |   |
   O   |
@@ -109,7 +109,7 @@
       |
 =========",
 
-                @"
+@"
   +---+
   |   |
   O   |

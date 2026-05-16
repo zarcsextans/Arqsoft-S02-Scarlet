@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Threading;
 using Ahorcado;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         while (true)
         {
+            Console.Clear();
+
             Console.WriteLine("¿Qué juego quieres jugar?");
-            Console.WriteLine("  1 — Ahorcado");
-            Console.WriteLine("  2 — Viborita");
+            Console.WriteLine("1 - Ahorcado");
+            Console.WriteLine("2 - Viborita");
             Console.Write("Opción: ");
 
             var opcion = Console.ReadLine();
@@ -24,10 +27,11 @@ class Program
             }
             else
             {
-                Console.WriteLine("Opción no válida.");
+                Console.WriteLine("Opción inválida");
             }
 
-            Console.Write("\n¿Volver al menú principal? (s/n): ");
+            Console.Write("\n¿Volver al menú? (s/n): ");
+
             if (Console.ReadLine()?.ToLower() != "s")
                 break;
         }
@@ -35,11 +39,27 @@ class Program
 
     static void JugarAhorcado()
     {
-        var repositorio = new PalabrasEnMemoria();
-        var motor = new MotorAhorcado(repositorio);
-        var ui = new ConsolaUI(motor);
+        Console.Clear();
 
-        Console.WriteLine("=== AHORCADO ===");
+        Console.WriteLine("Categorías:");
+        Console.WriteLine("1 - arquitectura");
+        Console.WriteLine("2 - poo");
+        Console.WriteLine("3 - .net");
+        Console.Write("Elige categoría: ");
+
+        string opcion = Console.ReadLine();
+
+        string categoria = opcion switch
+        {
+            "1" => "arquitectura",
+            "2" => "poo",
+            "3" => ".net",
+            _ => "arquitectura"
+        };
+
+        var repo = new PalabrasEnMemoria(categoria);
+        var motor = new MotorAhorcado(repo);
+        var ui = new ConsolaUI(motor);
 
         while (!motor.Ganado() && !motor.Perdido())
         {
@@ -59,11 +79,11 @@ class Program
         ui.MostrarTablero();
 
         if (motor.Ganado())
-            ui.MostrarMensaje($"\n¡Ganaste! La palabra era: {motor.PalabraSecreta}");
+            ui.MostrarMensaje("\n¡Ganaste!");
         else
             ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
 
-        Console.Write("\nPresiona ENTER para continuar...");
+        Console.WriteLine("\nPresiona ENTER para continuar...");
         Console.ReadLine();
     }
 
@@ -77,6 +97,7 @@ class Program
         while (!motor.Ganado() && !motor.Perdido())
         {
             ui.MostrarTablero();
+
             var tecla = ui.LeerTecla();
 
             if (tecla == ConsoleKey.Q)
@@ -86,20 +107,20 @@ class Program
                 motor.CambiarDireccion(tecla);
 
             motor.Avanzar();
-            System.Threading.Thread.Sleep(150);
+
+            Thread.Sleep(150);
         }
 
         ui.MostrarTablero();
 
-        ui.MostrarMensaje(
-            motor.Ganado()
-                ? "\n¡Ganaste! Llegaste a 10 puntos."
-                : "\nGame over."
-        );
+        if (motor.Ganado())
+            ui.MostrarMensaje("\n¡Ganaste!");
+        else
+            ui.MostrarMensaje("\nGame Over");
 
         Console.CursorVisible = true;
 
-        Console.Write("\nPresiona ENTER para continuar...");
+        Console.WriteLine("\nPresiona ENTER para continuar...");
         Console.ReadLine();
     }
 }

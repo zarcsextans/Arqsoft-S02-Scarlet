@@ -1,4 +1,6 @@
-﻿using Juego_ahorcado;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Ahorcado
 {
@@ -92,7 +94,6 @@ namespace Ahorcado
         }
 
         public bool Ganado() => Puntos >= 10;
-
         public bool Perdido() => _perdido;
     }
 }

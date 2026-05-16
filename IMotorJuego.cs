@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Juego_ahorcado
+﻿namespace Ahorcado
 {
-    internal interface IMotorJuego
+    public interface IMotorJuego
     {
         bool Ganado();
         bool Perdido();

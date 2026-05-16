@@ -5,20 +5,49 @@ namespace Ahorcado
 {
     public class PalabrasEnMemoria : IRepositorioPalabras
     {
-        private readonly List<string> _palabras = new()
+        private readonly List<string> _palabras;
+        private readonly Random _random = new();
+
+        public PalabrasEnMemoria(string categoria)
         {
-            "arquitectura",
-            "interfaz",
-            "polimorfismo",
-            "encapsulamiento",
-            "herencia"
-        };
+            categoria ??= "";
+
+            _palabras = categoria.ToLower() switch
+            {
+                "arquitectura" => new List<string>
+                {
+                    "arquitectura",
+                    "componente",
+                    "dependencia",
+                    "acoplamiento"
+                },
+
+                "poo" => new List<string>
+                {
+                    "polimorfismo",
+                    "encapsulamiento",
+                    "herencia",
+                    "clase"
+                },
+
+                ".net" => new List<string>
+                {
+                    "namespace",
+                    "interfaz",
+                    "delegado",
+                    "middleware"
+                },
+
+                _ => new List<string>
+                {
+                    "arquitectura"
+                }
+            };
+        }
 
         public string ObtenerPalabraAleatoria()
         {
-            var random = new Random();
-
-            return _palabras[random.Next(_palabras.Count)];
+            return _palabras[_random.Next(_palabras.Count)];
         }
     }
 }

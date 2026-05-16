@@ -1,4 +1,7 @@
-﻿namespace Ahorcado
+﻿using System;
+using System.Linq;
+
+namespace Ahorcado
 {
     public class ConsolaUIViborita
     {
@@ -27,7 +30,6 @@
             Console.WriteLine("+" + new string('-', _motor.Ancho) + "+");
 
             var cuerpoArray = _motor.Cuerpo.ToList();
-            int index = 0;
 
             for (int y = 0; y < _motor.Alto; y++)
             {
@@ -37,28 +39,35 @@
                 {
                     var pos = (x, y);
 
+                    // Cabeza
                     if (cuerpoArray.First() == pos)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write("@"); // cabeza
+                        Console.Write("@");
                         Console.ResetColor();
                     }
+
+                    // Cuerpo
                     else if (cuerpoArray.Contains(pos))
                     {
-                        // color dinámico por segmento
-                        int cuerpoIndex = cuerpoArray.IndexOf(pos);
-                        var color = _coloresCuerpo[cuerpoIndex % _coloresCuerpo.Length];
+                        int index = cuerpoArray.IndexOf(pos);
 
-                        Console.ForegroundColor = color;
+                        Console.ForegroundColor =
+                            _coloresCuerpo[index % _coloresCuerpo.Length];
+
                         Console.Write("o");
                         Console.ResetColor();
                     }
+
+                    // Comida
                     else if (_motor.Comida == pos)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("*"); // comida
+                        Console.Write("*");
                         Console.ResetColor();
                     }
+
+                    // Espacio vacío
                     else
                     {
                         Console.Write(" ");
