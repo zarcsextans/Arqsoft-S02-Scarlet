@@ -53,7 +53,8 @@ Proyecto
 
 <img width="1205" height="648" alt="Captura de pantalla 2026-05-15 194038" src="https://github.com/user-attachments/assets/3186721b-acad-4ab0-9e70-5f720a31959d" />
 
-<img width="1447" height="816" alt="Captura de pantalla 2026-05-15 174533" src="https://github.com/user-attachments/assets/0d5fd0cc-21e2-4e8d-996c-3718eb7e3109" />
+<img width="1188" height="626" alt="Captura de pantalla 2026-05-15 204627" src="https://github.com/user-attachments/assets/975e3a63-20a2-464a-af9e-965f87dca663" />
+
 
 
 
